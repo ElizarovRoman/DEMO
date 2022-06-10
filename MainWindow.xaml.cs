@@ -23,16 +23,18 @@ namespace sport
     public partial class MainWindow : Window
     {
         int count = 0;
+        int idr;
         public MainWindow()
         {
             InitializeComponent();
             lb1.Visibility = Visibility.Hidden;
             txtCAP.Visibility = Visibility.Hidden;
+           
         }
         public DataTable SQLBase(string selectSQL)
             {
             DataTable dataTable = new DataTable("dataBase");
-            string connectionString = "Server=.\\SQLEXPRESS; Trusted_Connection=Yes; Database=Trade";
+            string connectionString = "Server=.\\SQLSERVEREXPRES; Trusted_Connection=Yes; Database=Trade";
             SqlConnection sqlconn = new SqlConnection(connectionString);
             sqlconn.Open();
             SqlCommand sqlcomand= sqlconn.CreateCommand();
@@ -45,40 +47,33 @@ namespace sport
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            if(count >= 2)
-            {
-
-                btGo.IsEnabled = false;
-                log.IsEnabled = false;
-                pass.IsEnabled = false;
-            }
-
-            try
-            {
+                       
                 DataTable users = new DataTable();
                 users = SQLBase("Select * FROM [User] WHERE [UserLogin] = '" + log.Text + "'AND [UserPassword] = '" + pass.Text + "'");
                 if (users.Rows.Count > 0)
                 {
                     SqlConnection connection = null;
                     string sql = "SELECT [UserRole] FROM [User] WHERE [UserLogin] = '" + log.Text + "' AND [UserPassword] = '" + pass.Text + "'";
-                    string connectionString = "Server=.\\SQLEXPRESS; Trusted_Connection=Yes; Database=Trade";
+                    string connectionString = "Server=.\\SQLSERVEREXPRES; Trusted_Connection=Yes; Database=Trade";
                     connection = new SqlConnection(connectionString);
                     SqlCommand command = new SqlCommand(sql, connection);
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     connection.Open();
                     string role = command.ExecuteScalar().ToString();
-                    int idr = int.Parse(role);
+                    idr = int.Parse(role);
                     connection.Close();
                     if (idr == 1)
                     {
                         MessageBox.Show("Добро пожаловать Клиент", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information); // говорим, что авторизовался
-                        Form2 fr = new Form2();
+                        Form1 fr = new Form1(idr);
                         fr.Show();
                     }
                     else
                     {
                         if (idr == 2)
                         {
+                            Form1 fr = new Form1(idr);
+                            fr.Show();
                             MessageBox.Show("Добро пожаловать Администратор", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
@@ -106,11 +101,7 @@ namespace sport
                 }
 
                     
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+           
         }
 
         private void txtCAP_TextChanged(object sender, TextChangedEventArgs e)
@@ -125,7 +116,7 @@ namespace sport
                 {
                     SqlConnection connection = null;
                     string sql = "SELECT [UserRole] FROM [User] WHERE [UserLogin] = '" + log.Text + "' AND [UserPassword] = '" + pass.Text + "'";
-                    string connectionString = "Server=.\\SQLEXPRESS; Trusted_Connection=Yes; Database=Trade";
+                    string connectionString = "Server=.\\SQLSERVEREXPRES; Trusted_Connection=Yes; Database=Trade";
                     connection = new SqlConnection(connectionString);
                     SqlCommand command = new SqlCommand(sql, connection);
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -136,12 +127,13 @@ namespace sport
                     if (idr == 1)
                     {
                         MessageBox.Show("Добро пожаловать Клиент", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information); // говорим, что авторизовался
-
+                       
                     }
                     else
                     {
                         if (idr == 2)
                         {
+                           
                             MessageBox.Show("Добро пожаловать Администратор", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
@@ -155,6 +147,14 @@ namespace sport
             {
                 btGo.IsEnabled = false;
             }
+        }
+
+        private void sed_Click(object sender, RoutedEventArgs e)
+        {
+            Form2 fr = new Form2();
+            fr.Show();
+            this.Hide();
+
         }
     }
 }

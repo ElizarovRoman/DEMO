@@ -14,3 +14,10 @@ C:\Users\apisi\source\repos\sport\obj\Debug\sport.csproj.CoreCompileInputs.cache
 C:\Users\apisi\source\repos\sport\obj\Debug\sport.exe
 C:\Users\apisi\source\repos\sport\obj\Debug\sport.pdb
 C:\Users\apisi\source\repos\sport\obj\Debug\sport.Form1.resources
+C:\Users\apisi\source\repos\sport\obj\Debug\sport.Form2.resources
+C:\Users\apisi\source\repos\sport\bin\Debug\EntityFramework.dll
+C:\Users\apisi\source\repos\sport\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\apisi\source\repos\sport\bin\Debug\EntityFramework.xml
+C:\Users\apisi\source\repos\sport\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\apisi\source\repos\sport\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\apisi\source\repos\sport\obj\Debug\sport_Content.g.cs

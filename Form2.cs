@@ -28,7 +28,7 @@ namespace sport
         private void Form2_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tradeDataSet.Product". При необходимости она может быть перемещена или удалена.
-            this.productTableAdapter.Fill(this.tradeDataSet.Product);
+          
 
         }
 

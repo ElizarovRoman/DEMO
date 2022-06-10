@@ -12,6 +12,7 @@
         <TextBox x:Name="pass" HorizontalAlignment="Left" Height="23" Margin="260,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" Text="JlFRCZ"/>
         <TextBox x:Name="txtCAP" HorizontalAlignment="Left" Height="23" Margin="317,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtCAP_TextChanged"/>
         <TextBox x:Name="lb1" HorizontalAlignment="Left" Height="23" Margin="317,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <Button x:Name="sed" Content="Send" HorizontalAlignment="Left" Margin="345,365,0,0" VerticalAlignment="Top" Width="75" Click="sed_Click"/>
 
     </Grid>
 </Window>

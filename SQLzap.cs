@@ -13,7 +13,7 @@ namespace sport
         public DataTable SQLBase(string selectSQL)
         {
             DataTable dataTable = new DataTable("dataBase");
-            string connectionString = "Server=.\\SQLEXPRESS; Trusted_Connection=Yes; Database=Trade";
+            string connectionString = "Server=.\\SQLSERVEREXPRES; Trusted_Connection=Yes; Database=Trade";
             SqlConnection sqlconn = new SqlConnection(connectionString);
             sqlconn.Open();
             SqlCommand sqlcomand = sqlconn.CreateCommand();
